@@ -1,6 +1,7 @@
-from api import router
-from mangum import Mangum
 import uvicorn
+from mangum import Mangum
+
+from api import router
 from config import Config
 
 handler = Mangum(router)
