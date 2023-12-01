@@ -10,7 +10,7 @@ This is a simple CRUD (Create, Read, Update, Delete) User API built with FastAPI
 - **Description:** Retrieve information for a specific user.
 - **Sample Curl:**
   ```bash
-  curl https://4cls57wwkb5ulg4yp4nvenot5a0exskt.lambda-url.ap-south-1.on.aws/get-user?user_id=<user_id>
+  curl https://4cls57wwkb5ulg4yp4nvenot5a0exskt.lambda-url.ap-south-1.on.aws/get-user/<user_id>
   ```
 
 ### 2. Get Users
@@ -46,7 +46,7 @@ This is a simple CRUD (Create, Read, Update, Delete) User API built with FastAPI
 - **Description:** Delete a user by their ID.
 - **Sample Curl:**
   ```bash
-  curl -X DELETE https://4cls57wwkb5ulg4yp4nvenot5a0exskt.lambda-url.ap-south-1.on.aws/delete-user?user_id=<user_id>
+  curl -X DELETE https://4cls57wwkb5ulg4yp4nvenot5a0exskt.lambda-url.ap-south-1.on.aws/<user_id>
   ```
 
 ### 5. Update User
@@ -56,7 +56,6 @@ This is a simple CRUD (Create, Read, Update, Delete) User API built with FastAPI
 - **Request Body (JSON):**
   ```json
   {
-    "user_id": "<user_id>",
     "full_name": "<full_name>",
     "mob_num": "<mob_num>",
     "pan_num": "<pan_num>"
@@ -64,7 +63,7 @@ This is a simple CRUD (Create, Read, Update, Delete) User API built with FastAPI
   ```
 - **Sample Curl:**
   ```bash
-  curl -X PUT -H "Content-Type: application/json" -d '{"user_id": "<user_id>", "full_name": "<full_name>", "mob_num": "<mob_num>", "pan_num": "<pan_num>"}' https://4cls57wwkb5ulg4yp4nvenot5a0exskt.lambda-url.ap-south-1.on.aws/update-user
+  curl -X PUT -H "Content-Type: application/json" -d '{"user_id": "<user_id>", "full_name": "<full_name>", "mob_num": "<mob_num>", "pan_num": "<pan_num>"}' https://4cls57wwkb5ulg4yp4nvenot5a0exskt.lambda-url.ap-south-1.on.aws/update-user/<user-id>
   ```
 
 ## Validation
