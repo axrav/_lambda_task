@@ -28,7 +28,7 @@ async def status():
 @router.post("/create-user")
 async def create_user(user: User):
     try:
-        user_dict = user.model_dump()
+        user_dict = user.dict()
         result = await collection.insert_one(user_dict)
         return JSONResponse(content={"message": "user created successfully", "user_id": str(user.user_id)}, status_code=201)
     except Exception as e:

@@ -1,5 +1,5 @@
 fastapi==0.99.0
 uvicorn
-motor
+motor==3.3.1
 python-dotenv
 mangum
