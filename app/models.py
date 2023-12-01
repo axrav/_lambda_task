@@ -1,8 +1,10 @@
 from pydantic import BaseModel, Field, validator
 from uuid import UUID, uuid4
+import re
 
+# define user model with validation
 class User(BaseModel):
-    user_id: UUID = Field(default_factory=uuid4)
+    user_id: UUID = Field(default_factory=uuid4) # default value for user_id as uuid4
     full_name: str
     mob_num: str
     pan_num: str
@@ -16,7 +18,7 @@ class User(BaseModel):
     @validator("pan_num")
     def validate_pan_num(cls, value):
         value = value.upper()
-        pan_format = "^[A-Z]{5}[0-9]{4}[A-Z]{1}$"
-        if not value.isalnum() or not value.match(pan_format):
+        pan_format = "^[A-Z]{5}[0-9]{4}[A-Z]{1}$" # regex for PAN number
+        if not value.isalnum() or not re.match(pan_format, value):
             raise ValueError("Invalid PAN number")
         return value

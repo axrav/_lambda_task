@@ -1,9 +1,11 @@
 from motor.motor_asyncio import AsyncIOMotorClient
 from config import Config
+
+# database class to initialize the connection to the database
 class Database:
     def __init__(self, uri: str, db_name: str):
-        self.client = AsyncIOMotorClient(uri)
-        self.db = self.client[db_name]
+        self.client = AsyncIOMotorClient(uri, uuidRepresentation="standard")
+        self.db = self.client.get_database(db_name)
 
     async def close_connection(self):
         self.client.close()
@@ -26,5 +28,6 @@ async def init_mongo():
 def get_db():
     return database.db
 
-def get_collection(collection_name: str):
-    return database.db[collection_name]
+def get_collection():
+    return database.db.get_collection("users")
+
