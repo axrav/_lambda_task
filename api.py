@@ -8,6 +8,14 @@ router = FastAPI()
 # define collection
 collection = get_collection()
 
+# home endpoint
+@router.get("/")
+async def home():
+    try:
+        return JSONResponse(status_code=200, content={"message": "Home Online"})
+    except Exception as e:
+        return handle_error(e)
+    
 # status endpoint
 @router.get("/status")
 async def status():
